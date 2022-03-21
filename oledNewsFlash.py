@@ -1,29 +1,30 @@
 import os
 import json
 import urllib3
-from OmegaExpansion import oledExp
+# from OmegaExpansion import oledExp
 
 # Takes in details of a headline and prints it to the OLED screen
 # Some basic error checking built into print ordering to prevent overwriting of text,
 # and proper truncation of titles
 def writeHeadline (title, time, author):
-    if oledExp.driverInit() != 0:
-        print 'ERROR: Could not initialize the OLED Expansion'
-        return False
+    return True
+    # if oledExp.driverInit() != 0:
+    #     print 'ERROR: Could not initialize the OLED Expansion'
+    #     return False
 
-    oledExp.clear()
+    # oledExp.clear()
 
     # writes the authors at the bottom - might overflow back to page 0
-    oledExp.setCursor(6,0)
-    oledExp.write(author)
+    # oledExp.setCursor(6,0)
+    # oledExp.write(author)
 
     # writes the headline to the screen to clear overflow from author
-    oledExp.setCursor(0,0)
-    oledExp.write('    ' + title) # indenting the title to look a bit better
+    # oledExp.setCursor(0,0)
+    # oledExp.write('    ' + title) # indenting the title to look a bit better
 
     # writes timestamp at the end to ensure it doesn't get overwritten
-    oledExp.setCursor(5,0)
-    oledExp.write(time)
+    # oledExp.setCursor(5,0)
+    # oledExp.write(time)
 
 
 # creates a GET request to the newsapi /articles endpoint
